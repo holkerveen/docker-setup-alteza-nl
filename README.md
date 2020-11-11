@@ -1,12 +1,16 @@
 # Docker setup voor alteza.nl
 
 # TL;DR
+
+Eerst .env file in dezelfde map als `docker-compose.yml` aanmaken op basis van `.env.example`
+
 Bouw frontend
 ```bash
 docker-compose run build yarn
 docker-compose run build yarn build
 ```
 
+Docker setup online brengen:
 ```bash
 docker-compose up
 ```
@@ -14,7 +18,7 @@ docker-compose up
 Dan, database importeren:
 
 ```bash
-cat wp-database.sql | mysql -hlocalhost -uroot -p1234
+cat wp-database.sql | mysql -hlocalhost -uroot -p*password*
 ```
 
 Zorg ervoor dat in wp_options de correcte waardes zijn ingevuld
@@ -26,4 +30,6 @@ Backend zou vervolgens bereikbaar moeten zijn op http://localhost:8081 en fronte
 
 
 # Bouwen voor productie
-docker-compose run -e REACT_APP_API_ENDPOINT=<prod-endpoint> -e REACT_APP_GOOGLE_MAPS_API_KEY=<prod-key> build yarn build
+```bash
+docker-compose run -e REACT_APP_API_ENDPOINT=*prod-endpoint* -e REACT_APP_GOOGLE_MAPS_API_KEY=*prod-key* build yarn build
+```

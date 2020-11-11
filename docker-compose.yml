@@ -35,8 +35,8 @@ services:
     volumes:
       - ../alteza-website-4.0:/app
     environment:
-      - REACT_APP_API_ENDPOINT: "http://localhost:8081/wp-json/"
-      - REACT_APP_GOOGLE_MAPS_API_KEY: "api_key"
+      REACT_APP_API_ENDPOINT: "http://localhost:8081/wp-json/"
+      REACT_APP_GOOGLE_MAPS_API_KEY: "api_key"
 
 volumes:
   db:
